@@ -94,13 +94,14 @@ async def chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"Chat ID: {update.effective_chat.id}")
 
 # Aggiungilo in main()
-app.add_handler(CommandHandler("chatid", chat_id))
 
 async def main ():
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("aggiungi_evento", aggiungi_evento))
     app.add_handler(CommandHandler("lista_eventi", lista_eventi))
+    app.add_handler(CommandHandler("chatid", chat_id))
+
     asyncio.create_task(notify(app))
     await app.run_polling()
 
