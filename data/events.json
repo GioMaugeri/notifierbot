@@ -1,0 +1,12 @@
+[
+    {
+        "type": "birthday",
+        "name": "Max",
+        "date": "2025-05-20"
+    },
+    {
+        "type": "reminder",
+        "text": "Organizzarsi per etna comics",
+        "date": "2025-05-19"
+    }
+]
