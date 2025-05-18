@@ -7,7 +7,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from notifications.birthdays import check_birthdays
 from notifications.custom import check_custom
 
-CHAT_ID = -4871518173
+CHAT_ID = -1002375939190
 TOKEN = "7909371368:AAGPCCw2qx9aybzUJbFHYjXZPPOb840c028"
 
 async def load_events():
