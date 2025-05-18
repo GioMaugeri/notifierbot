@@ -16,10 +16,13 @@ async def load_events():
 
 async def notify(app):
     while True:
+        print("✅ Controllo eventi...")  # <--- DEBUG
         events = await load_events()
         messages = []
         messages += check_birthdays(events)
         messages += check_custom(events)
+
+        print(f"📬 Messaggi trovati: {messages}")  # <--- DEBUG
 
         for msg in messages:
             await app.bot.send_message(chat_id=CHAT_ID, text=msg)
@@ -85,6 +88,13 @@ async def lista_eventi(update: Update, context: ContextTypes.DEFAULT_TYPE):
             testo += f"📌 {e['text']} - {e['date']}\n"
 
     await update.message.reply_text(testo)
+
+async def chat_id(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    print(f"🆔 Chat ID: {update.effective_chat.id}")
+    await update.message.reply_text(f"Chat ID: {update.effective_chat.id}")
+
+# Aggiungilo in main()
+app.add_handler(CommandHandler("chatid", chat_id))
 
 async def main ():
     app = ApplicationBuilder().token(TOKEN).build()
