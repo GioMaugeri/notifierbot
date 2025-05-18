@@ -24,7 +24,7 @@ async def notify(app):
         for msg in messages:
             await app.bot.send_message(chat_id=CHAT_ID, text=msg)
 
-        await asyncio.sleep(86400)
+        await asyncio.sleep(20)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
